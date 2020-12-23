@@ -11,5 +11,5 @@
 *.code-workspace
 *.out
 main.c
-
+Libft_unit_tests
 # End of https://www.toptal.com/developers/gitignore/api/vscode

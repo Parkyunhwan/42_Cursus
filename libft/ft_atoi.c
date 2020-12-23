@@ -1,32 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ypark <ypark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/23 19:49:35 by ypark             #+#    #+#             */
-/*   Updated: 2020/12/24 00:03:34 by ypark            ###   ########.fr       */
+/*   Created: 2020/12/24 01:58:25 by ypark             #+#    #+#             */
+/*   Updated: 2020/12/24 02:39:11 by ypark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t		ft_strlcpy(char *restrict dst, char *restrict src, size_t dstsize)
+int		ft_isspace(int c)
 {
-	unsigned int	i;
-	unsigned int	len;
+	if (c == '\t' || c == '\v' || c == '\n' || \
+		c == '\r' || c == '\f' || c == ' ')
+		return (1);
+	return (0);
+}
 
-	if (dst == 0 && src == 0)
-		return (0);
+int		ft_atoi(const char *str)
+{
+	long long	i;
+	long long	val;
+	int			minus;
+
 	i = 0;
-	len = ft_strlen(src);
-	while (src[i] != '\0' && i + 1 < dstsize)
+	val = 0;
+	minus = 1;
+	while (ft_isspace(str[i]))
+		i++;
+	if (str[i] == '+' || str[i] == '-')
+		if (str[i++] == '-')
+			minus = -1;
+	while (ft_isdigit(str[i]))
 	{
-		dst[i] = src[i];
+		val *= 10;
+		val += (str[i] - '0');
 		i++;
 	}
-	if (dstsize > 0)
-		dst[i] = '\0';
-	return (len);
+	val *= minus;
+	return (val);
 }

@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ypark <ypark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/22 01:24:07 by ypark             #+#    #+#             */
-/*   Updated: 2020/12/23 23:49:55 by ypark            ###   ########.fr       */
+/*   Created: 2020/12/24 02:55:22 by ypark             #+#    #+#             */
+/*   Updated: 2020/12/24 03:07:29 by ypark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+char	*ft_strdup(const char *s1)
 {
-	size_t i;
+	char	*tmp;
+	int		len;
 
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	len = ft_strlen(s1);
+	if (!(tmp = malloc(len + 1)))
+		return (0);
+	ft_memcpy(tmp, s1, len);
+	tmp[len] = 0;
+	return (tmp);
 }
