@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ypark < ypark@student.42seoul.kr>          +#+  +:+       +#+        */
+/*   By: ypark <ypark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/21 21:41:43 by ypark             #+#    #+#             */
-/*   Updated: 2020/12/22 17:14:22 by ypark            ###   ########.fr       */
+/*   Created: 2020/12/23 18:02:05 by ypark             #+#    #+#             */
+/*   Updated: 2020/12/23 23:10:51 by ypark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
-int ft_isalnum(int c)
+int		ft_isalnum(int c)
 {
-    if (ft_isalpha(c) || ft_isdigit(c))
-        return (1);
-    else
-        return (0);
+	if (ft_isalpha(c) || ft_isdigit(c))
+		return (1);
+	else
+		return (0);
 }

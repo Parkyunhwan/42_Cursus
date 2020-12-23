@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ypark < ypark@student.42seoul.kr>          +#+  +:+       +#+        */
+/*   By: ypark <ypark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/22 01:22:31 by ypark             #+#    #+#             */
-/*   Updated: 2020/12/22 15:48:07 by ypark            ###   ########.fr       */
+/*   Created: 2020/12/23 18:13:42 by ypark             #+#    #+#             */
+/*   Updated: 2020/12/23 23:10:56 by ypark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isdigit(int c)
+int		ft_isdigit(int c)
 {
-    if ('0' <= c && c <= '9')
-        return (1);
-    else
-        return (0);
+	if ('0' <= c && c <= '9')
+		return (1);
+	else
+		return (0);
 }

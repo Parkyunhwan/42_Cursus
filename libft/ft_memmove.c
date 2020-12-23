@@ -3,24 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ypark < ypark@student.42seoul.kr>          +#+  +:+       +#+        */
+/*   By: ypark <ypark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/22 18:49:34 by ypark             #+#    #+#             */
-/*   Updated: 2020/12/22 18:50:11 by ypark            ###   ########.fr       */
+/*   Updated: 2020/12/23 23:11:01 by ypark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void		*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char *tmp;
-	const char *s;
+	char		*tmp;
+	const char	*s;
 
-/*
-** 	src is bigger than dst
-** 	front copy
-*/
 	if (dst <= src)
 	{
 		tmp = dst;
@@ -30,10 +26,6 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	}
 	else
 	{
-/*
-** src is smaller than dst
-** back copy
-*/
 		tmp = dst;
 		tmp += len;
 		s = src;
@@ -43,3 +35,11 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	}
 	return (dst);
 }
+/*
+** 	src is bigger than dst
+** 	front copy
+*/
+/*
+** src is smaller than dst
+** back copy
+*/

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ypark < ypark@student.42seoul.kr>          +#+  +:+       +#+        */
+/*   By: ypark <ypark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/22 15:40:56 by ypark             #+#    #+#             */
-/*   Updated: 2020/12/22 16:26:52 by ypark            ###   ########.fr       */
+/*   Updated: 2020/12/23 23:10:55 by ypark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isascii(int c)
+int		ft_isascii(int c)
 {
 	if (0 <= c && c <= 127)
 		return (1);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ypark < ypark@student.42seoul.kr>          +#+  +:+       +#+        */
+/*   By: ypark <ypark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/22 16:19:13 by ypark             #+#    #+#             */
-/*   Updated: 2020/12/22 16:40:41 by ypark            ###   ########.fr       */
+/*   Updated: 2020/12/23 23:10:50 by ypark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	bzero(void *s, size_t n)
 {
 	unsigned char *tmp;
 
-	tmp = (unsigned char*) s;
-	while(n--)
+	tmp = (unsigned char*)s;
+	while (n--)
 		*tmp++ = 0;
 	return ;
 }

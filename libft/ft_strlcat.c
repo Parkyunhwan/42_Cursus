@@ -1,23 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ypark <ypark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/22 01:24:07 by ypark             #+#    #+#             */
-/*   Updated: 2020/12/23 23:11:07 by ypark            ###   ########.fr       */
+/*   Created: 2020/12/23 02:57:44 by ypark             #+#    #+#             */
+/*   Updated: 2020/12/23 23:11:03 by ypark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
-size_t	ft_strlen(const char *s)
+size_t		ft_strlcat(char *restrict dest, char *restrict src, size_t size)
 {
-	size_t i;
+	unsigned int	i;
+	unsigned int	j;
+	unsigned int	tmp;
 
 	i = 0;
-	while (s[i])
+	while (dest[i])
 		i++;
-	return (i);
+	tmp = i;
+	j = 0;
+	while (src[j] && i + 1 < size)
+	{
+		dest[i] = src[j];
+		i++;
+		j++;
+	}
+	dest[i] = '\0';
+	while (src[j])
+		j++;
+	if (size < tmp)
+		return (j + size);
+	else
+		return (j + tmp);
 }
