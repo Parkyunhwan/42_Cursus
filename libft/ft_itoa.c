@@ -1,33 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ypark <ypark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/23 19:49:35 by ypark             #+#    #+#             */
-/*   Updated: 2020/12/26 15:14:58 by ypark            ###   ########.fr       */
+/*   Created: 2020/12/26 16:36:40 by ypark             #+#    #+#             */
+/*   Updated: 2020/12/26 17:08:18 by ypark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t		ft_strlcpy(char *restrict dst,
-						const char *restrict src, size_t dstsize)
+static size_t	get_size(long n)
 {
-	unsigned int	i;
-	unsigned int	len;
+	if (n < 10)
+		return (1);
+	else
+		return (get_size(n / 10) + 1);
+}
 
-	if (dst == 0 && src == 0)
+char	*ft_itoa(int n)
+{
+	size_t	size;
+	char	*tmp;
+	int		i;
+	int		minus;
+	long	val;
+
+	val = n;
+	if (n < 0)
+		val *= -1;
+	size = get_size(val);
+	size = n < 0 ? size + 1 : size;
+	if (!(tmp = (char*)malloc(sizeof(char) * (size + 1))))
 		return (0);
 	i = 0;
-	len = ft_strlen(src);
-	while (src[i] != '\0' && i + 1 < dstsize)
+	while (i < size)
 	{
-		dst[i] = src[i];
+		tmp[size - i - 1] = (val % 10) + '0';
+		val /= 10;
 		i++;
 	}
-	if (dstsize > 0)
-		dst[i] = '\0';
-	return (len);
+	tmp[0] = n < 0 ? '-' : tmp[0];
+	tmp[i] = 0;
+	return (tmp);
 }

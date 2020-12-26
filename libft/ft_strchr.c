@@ -6,7 +6,7 @@
 /*   By: ypark <ypark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 00:08:59 by ypark             #+#    #+#             */
-/*   Updated: 2020/12/24 00:44:17 by ypark            ###   ########.fr       */
+/*   Updated: 2020/12/26 13:19:34 by ypark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 char		*ft_strchr(const char *s, int c)
 {
-	if (c == '\0')
-		return ((char*)s + ft_strlen(s));
 	while (*s)
 	{
 		if (*s == (char)c)
 			return ((char*)s);
 		s++;
 	}
+	if (!c)
+		return ((char*)s);
 	return (0);
 }
 /*

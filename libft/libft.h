@@ -6,7 +6,7 @@
 /*   By: ypark <ypark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/22 16:24:17 by ypark             #+#    #+#             */
-/*   Updated: 2020/12/24 02:49:36 by ypark            ###   ########.fr       */
+/*   Updated: 2020/12/26 17:09:00 by ypark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,18 @@ void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 int		ft_strncmp(char *s1, char *s2, size_t n);
 size_t	ft_strlcat(char *restrict dest, char *restrict src, size_t size);
-size_t	ft_strlcpy(char *restrict dst, char *restrict src, size_t dstsize);
+size_t	ft_strlcpy(char *restrict dst,
+					const char *restrict src, size_t dstsize);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 int		ft_atoi(const char *str);
 void	*ft_calloc(size_t count, size_t size);
+char	*ft_strdup(const char *s1);
+
+char	*ft_strjoin(char const *s1, char *s2);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strtrim(char const *s1, char const *set);
+char	**ft_split(char const *s, char c);
+char	*ft_itoa(int n);
 #endif
