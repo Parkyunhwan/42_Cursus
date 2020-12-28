@@ -10,6 +10,9 @@
 !.vscode/extensions.json
 *.code-workspace
 *.out
+*.o
+libft.a
 main.c
 Libft_unit_tests
+Libftest
 # End of https://www.toptal.com/developers/gitignore/api/vscode
