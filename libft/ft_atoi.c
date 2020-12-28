@@ -6,7 +6,7 @@
 /*   By: ypark <ypark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 01:58:25 by ypark             #+#    #+#             */
-/*   Updated: 2020/12/28 22:07:45 by ypark            ###   ########.fr       */
+/*   Updated: 2020/12/29 02:34:20 by ypark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int	ft_isspace(int c)
 int			ft_atoi(const char *str)
 {
 	int		i;
-	int		val;
+	long	val;
 	int		minus;
 
 	i = 0;
@@ -38,8 +38,13 @@ int			ft_atoi(const char *str)
 	{
 		val *= 10;
 		val += (str[i] - '0');
+		if (val > 2147483647 && minus == 1)
+			return (-1);
+		if (val > 2147483648 && minus == -1)
+			return (0);
 		i++;
 	}
 	val *= minus;
 	return (val);
 }
+
