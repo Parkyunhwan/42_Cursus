@@ -6,7 +6,7 @@
 /*   By: ypark <ypark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/26 10:29:41 by ypark             #+#    #+#             */
-/*   Updated: 2020/12/26 11:59:41 by ypark            ###   ########.fr       */
+/*   Updated: 2020/12/28 23:10:52 by ypark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,17 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*sub;
-	int		i;
+	size_t	i;
 
-	if (ft_strlen(s) < start)
+	if (s == 0)
 		return (0);
+	if (ft_strlen(s) < start)
+	{
+		if (!(sub = ft_strdup("")))
+			return (0);
+		else
+			return (sub);
+	}
 	if (!(sub = (char *)malloc(sizeof(char) * (len + 1))))
 		return (0);
 	i = 0;

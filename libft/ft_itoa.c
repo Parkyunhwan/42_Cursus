@@ -6,7 +6,7 @@
 /*   By: ypark <ypark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/26 16:36:40 by ypark             #+#    #+#             */
-/*   Updated: 2020/12/26 17:08:18 by ypark            ###   ########.fr       */
+/*   Updated: 2020/12/28 23:52:08 by ypark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,11 @@ static size_t	get_size(long n)
 		return (get_size(n / 10) + 1);
 }
 
-char	*ft_itoa(int n)
+char			*ft_itoa(int n)
 {
 	size_t	size;
+	size_t	i;
 	char	*tmp;
-	int		i;
-	int		minus;
 	long	val;
 
 	val = n;

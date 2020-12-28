@@ -6,7 +6,7 @@
 /*   By: ypark <ypark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/26 14:47:34 by ypark             #+#    #+#             */
-/*   Updated: 2020/12/26 16:36:21 by ypark            ###   ########.fr       */
+/*   Updated: 2020/12/28 23:12:18 by ypark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,16 +66,18 @@ char			**ft_split(char const *s, char c)
 	size_t		count;
 	char		**ret;
 	size_t		i;
-	size_t		*offset;
+	size_t		offset;
 
+	if (!s)
+		return (0);
 	count = count_word(s, c);
 	if (!(ret = (char**)malloc(sizeof(char *) * (count + 1))))
 		return (0);
-	*offset = 0;
+	offset = 0;
 	i = 0;
 	while (i < count)
 	{
-		ret[i] = copy_word(s, c, offset);
+		ret[i] = copy_word(s, c, &offset);
 		i++;
 	}
 	ret[i] = 0;

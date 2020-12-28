@@ -6,7 +6,7 @@
 /*   By: ypark <ypark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/26 12:00:39 by ypark             #+#    #+#             */
-/*   Updated: 2020/12/26 13:24:03 by ypark            ###   ########.fr       */
+/*   Updated: 2020/12/28 23:51:38 by ypark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t	i;
-	size_t	len;
+	int		i;
+	int		len;
 	char	*tmp;
 
 	if (!s1)
 		return (0);
-	if (!*set)
+	if (!set)
 		return (ft_strdup(s1));
 	i = 0;
 	len = ft_strlen(s1) - 1;

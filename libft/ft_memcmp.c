@@ -6,7 +6,7 @@
 /*   By: ypark <ypark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/23 02:16:02 by ypark             #+#    #+#             */
-/*   Updated: 2020/12/23 23:10:59 by ypark            ###   ########.fr       */
+/*   Updated: 2020/12/28 19:27:30 by ypark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	int				i;
+	size_t			i;
 	unsigned char	*ss1;
 	unsigned char	*ss2;
 

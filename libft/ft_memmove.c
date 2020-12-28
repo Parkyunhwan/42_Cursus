@@ -6,7 +6,7 @@
 /*   By: ypark <ypark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/22 18:49:34 by ypark             #+#    #+#             */
-/*   Updated: 2020/12/23 23:11:01 by ypark            ###   ########.fr       */
+/*   Updated: 2020/12/28 21:29:56 by ypark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void		*ft_memmove(void *dst, const void *src, size_t len)
 	char		*tmp;
 	const char	*s;
 
+	if (dst == 0 && src == 0)
+		return (0);
 	if (dst <= src)
 	{
 		tmp = dst;
@@ -36,6 +38,7 @@ void		*ft_memmove(void *dst, const void *src, size_t len)
 	return (dst);
 }
 /*
+**	safe memcpy
 ** 	src is bigger than dst
 ** 	front copy
 */

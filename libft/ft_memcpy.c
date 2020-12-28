@@ -6,7 +6,7 @@
 /*   By: ypark <ypark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/22 17:27:16 by ypark             #+#    #+#             */
-/*   Updated: 2020/12/26 11:58:37 by ypark            ###   ########.fr       */
+/*   Updated: 2020/12/28 21:03:09 by ypark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 
 void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
 {
-	char		*tmp;
-	const char	*s;
+	unsigned char		*tmp;
+	const unsigned char	*s;
 
+	if (dst == 0 && src == 0)
+		return (0);
 	tmp = dst;
 	s = src;
 	while (n--)

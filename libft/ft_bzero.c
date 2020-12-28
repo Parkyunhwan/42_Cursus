@@ -6,13 +6,13 @@
 /*   By: ypark <ypark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/22 16:19:13 by ypark             #+#    #+#             */
-/*   Updated: 2020/12/23 23:10:50 by ypark            ###   ########.fr       */
+/*   Updated: 2020/12/28 19:52:28 by ypark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
 	unsigned char *tmp;
 

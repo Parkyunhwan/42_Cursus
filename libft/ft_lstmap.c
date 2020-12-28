@@ -6,7 +6,7 @@
 /*   By: ypark <ypark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 03:20:58 by ypark             #+#    #+#             */
-/*   Updated: 2020/12/28 04:08:49 by ypark            ###   ########.fr       */
+/*   Updated: 2020/12/28 23:26:58 by ypark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,10 @@ t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	if (!n_head)
 		return (0);
 	curr = n_head;
-	while (curr)
+	lst = lst->next;
+	while (lst)
 	{
-		if (!(curr->next = ft_lstnew(f(lst->next->content))))
+		if (!(curr->next = ft_lstnew(f(lst->content))))
 		{
 			ft_lstclear(&n_head, del);
 			return (0);
@@ -33,4 +34,5 @@ t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		lst = lst->next;
 		curr = curr->next;
 	}
+	return (n_head);
 }

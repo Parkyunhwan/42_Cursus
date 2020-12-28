@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ypark <ypark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/26 11:39:39 by ypark             #+#    #+#             */
-/*   Updated: 2020/12/28 23:11:49 by ypark            ###   ########.fr       */
+/*   Created: 2020/12/28 18:53:40 by ypark             #+#    #+#             */
+/*   Updated: 2020/12/28 21:27:08 by ypark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char *s2)
+void	*ft_memccpy(void *restrict dst, const void *restrict src, \
+					int c, size_t n)
 {
-	size_t	len1;
-	size_t	len2;
-	char	*new;
+	unsigned char		*tmp;
+	const unsigned char	*s;
 
-	if (!s1 || !s2)
+	if (dst == 0 && src == 0)
 		return (0);
-	len1 = ft_strlen(s1);
-	len2 = ft_strlen(s2);
-	if (!(new = (char *)malloc(sizeof(char) * (len1 + len2 + 1))))
-		return (0);
-	ft_memcpy(new, s1, len1);
-	ft_memcpy(new + len1, s2, len2);
-	new[len1 + len2] = 0;
-	return (new);
+	tmp = dst;
+	s = src;
+	while (n--)
+	{
+		*tmp++ = *s++;
+		if (*(tmp - 1) == (unsigned char)c)
+			return (tmp);
+	}
+	return (0);
 }
