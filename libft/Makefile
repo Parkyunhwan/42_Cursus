@@ -6,11 +6,11 @@
 #    By: ypark <ypark@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/28 17:55:25 by ypark             #+#    #+#              #
-#    Updated: 2020/12/28 18:51:51 by ypark            ###   ########.fr        #
+#    Updated: 2020/12/29 20:37:57 by ypark            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-TARGET	=	libft.a
+NAME	=	libft.a
 CC		=	gcc
 CFLAGS	=	-Wall -Wextra -Werror
 AR		=	ar rcs
@@ -55,7 +55,8 @@ SRCS	=	\
 		ft_putstr_fd.c	\
 		ft_putendl_fd.c	\
 		ft_putnbr_fd.c	\
-						\
+
+BONUS_SRCS = \
 		ft_lstnew.c		\
 		ft_lstadd_front.c	\
 		ft_lstsize.c	\
@@ -66,22 +67,27 @@ SRCS	=	\
 		ft_lstiter.c	\
 		ft_lstmap.c
 
+BONUS_OBJS	=	$(BONUS_SRCS:.c=.o)
+
 OBJS		=	$(SRCS:.c=.o)
 
-all	:	$(TARGET)
+all	:	$(NAME)
 
-$(TARGET)	:	$(OBJS)
-	$(AR)	$(TARGET)	$(OBJS)
+$(NAME)	:	$(OBJS)
+	$(AR)	$(NAME)	$(OBJS)
 
 .c.o	:	$(SRCS)	$(INCLUDES)
 	$(CC)	$(CFLAGS)	-c	$<	-o	$(<:.c=.o)
 
 clean	:
-	$(RM)	$(OBJS)
+	$(RM)	$(OBJS) $(BONUS_OBJS)
 
 fclean	:
-	$(RM)	$(TARGET)
+	$(RM)	$(NAME)
 
 re	:	fclean	all
+
+bonus	:	$(OBJS)	$(BONUS_OBJS)
+	$(AR)	$(NAME)	$^
 
 .PHONY	:	all	clean	fclean	re

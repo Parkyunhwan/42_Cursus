@@ -6,7 +6,7 @@
 /*   By: ypark <ypark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/23 02:57:44 by ypark             #+#    #+#             */
-/*   Updated: 2020/12/29 19:39:25 by ypark            ###   ########.fr       */
+/*   Updated: 2020/12/29 20:22:13 by ypark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ size_t		ft_strlcat(char *restrict dest, char *restrict src, size_t size)
 		dest[dest_max_len + src_iter] = src[src_iter];
 		src_iter++;
 	}
-	dest[dest_max_len] = '\0';
+	if (dest_max_len < size)
+		dest[dest_max_len + src_iter] = '\0';
 	src_len = ft_strlen(src);
 	return (dest_max_len + src_len);
 }

@@ -6,7 +6,7 @@
 /*   By: ypark <ypark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/26 14:47:34 by ypark             #+#    #+#             */
-/*   Updated: 2020/12/28 23:12:18 by ypark            ###   ########.fr       */
+/*   Updated: 2020/12/29 21:04:28 by ypark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ static char		*copy_word(const char *s, char c, size_t *offset)
 		*offset += 1;
 	while (s[*offset + len] != c && s[*offset + len] != '\0')
 		len++;
-	tmp = (char *)malloc(sizeof(char) * (len + 1));
+	if (!(tmp = (char *)malloc(sizeof(char) * (len + 1))))
+		return (0);
 	save = len;
 	while (i < len)
 	{
@@ -59,6 +60,19 @@ static char		*copy_word(const char *s, char c, size_t *offset)
 	tmp[i] = 0;
 	*offset += len;
 	return (tmp);
+}
+
+static	void	word_free(char **ret, int num)
+{
+	int i;
+
+	i = 0;
+	while (i <= num)
+	{
+		free(ret[i]);
+		i++;
+	}
+	free(ret);
 }
 
 char			**ft_split(char const *s, char c)
@@ -77,9 +91,14 @@ char			**ft_split(char const *s, char c)
 	i = 0;
 	while (i < count)
 	{
-		ret[i] = copy_word(s, c, &offset);
+		if (!(ret[i] = copy_word(s, c, &offset)))
+		{
+			word_free(ret, i);
+			break ;
+		}
 		i++;
 	}
-	ret[i] = 0;
+	if (i == count)
+		ret[i] = 0;
 	return (ret);
 }
