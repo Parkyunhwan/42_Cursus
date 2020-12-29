@@ -6,7 +6,7 @@
 /*   By: ypark <ypark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/23 02:57:44 by ypark             #+#    #+#             */
-/*   Updated: 2020/12/29 19:12:24 by ypark            ###   ########.fr       */
+/*   Updated: 2020/12/29 19:39:25 by ypark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,25 @@
 
 size_t		ft_strlcat(char *restrict dest, char *restrict src, size_t size)
 {
-	size_t	i;
-	size_t	j;
-	size_t	dst_len;
+	size_t	dest_max_len;
+	size_t	src_iter;
+	size_t	src_len;
 
-	i = 0;
-	j = 0;
-	while (dest[i] && i < size)
-		i++;
-	while (src[j] && i + 1 < size)
+	dest_max_len = 0;
+	src_len = 0;
+	while (dest[dest_max_len] && dest_max_len < size)
+		dest_max_len++;
+	src_iter = 0;
+	while (src[src_iter] && dest_max_len + src_iter + 1 < size)
 	{
-		dest[i] = src[j];
-		i++;
-		j++;
+		dest[dest_max_len + src_iter] = src[src_iter];
+		src_iter++;
 	}
-	if (i - j < size)
-		dest[i] = '\0';
-	j = ft_strlen(src);
-	return (i + j);
+	dest[dest_max_len] = '\0';
+	src_len = ft_strlen(src);
+	return (dest_max_len + src_len);
 }
+/*
+** size < dst_len -> src_len + size
+** size > dst_len -> src_len + dst_len
+*/
