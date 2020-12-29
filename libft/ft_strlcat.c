@@ -6,7 +6,7 @@
 /*   By: ypark <ypark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/23 02:57:44 by ypark             #+#    #+#             */
-/*   Updated: 2020/12/23 23:11:03 by ypark            ###   ########.fr       */
+/*   Updated: 2020/12/29 19:12:24 by ypark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,22 @@
 
 size_t		ft_strlcat(char *restrict dest, char *restrict src, size_t size)
 {
-	unsigned int	i;
-	unsigned int	j;
-	unsigned int	tmp;
+	size_t	i;
+	size_t	j;
+	size_t	dst_len;
 
 	i = 0;
-	while (dest[i])
-		i++;
-	tmp = i;
 	j = 0;
+	while (dest[i] && i < size)
+		i++;
 	while (src[j] && i + 1 < size)
 	{
 		dest[i] = src[j];
 		i++;
 		j++;
 	}
-	dest[i] = '\0';
-	while (src[j])
-		j++;
-	if (size < tmp)
-		return (j + size);
-	else
-		return (j + tmp);
+	if (i - j < size)
+		dest[i] = '\0';
+	j = ft_strlen(src);
+	return (i + j);
 }
